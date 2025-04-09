@@ -37,6 +37,9 @@ kotlin {
             implementation(libs.ktor.client.darwin)
         }
         commonMain.dependencies {
+            // Koin DI
+            api(libs.koin.core)
+
             // General KTOR dependencies
             implementation(libs.bundles.ktor)
         }
