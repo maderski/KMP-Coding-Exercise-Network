@@ -28,8 +28,17 @@ kotlin {
     }
 
     sourceSets {
+        androidMain.dependencies {
+            // KTOR Engine for Android
+            implementation(libs.ktor.client.okhttp)
+        }
+        iosMain.dependencies {
+            // KTOR Engine for iOS
+            implementation(libs.ktor.client.darwin)
+        }
         commonMain.dependencies {
-            //put your multiplatform dependencies here
+            // General KTOR dependencies
+            implementation(libs.bundles.ktor)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
