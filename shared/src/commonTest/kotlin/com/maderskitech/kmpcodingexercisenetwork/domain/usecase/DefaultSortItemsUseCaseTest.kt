@@ -5,6 +5,9 @@ import com.maderskitech.kmpcodingexercisenetwork.domain.respository.ItemReposito
 import kotlinx.coroutines.runBlocking
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertNotNull
+import kotlin.test.assertNull
+import kotlin.test.assertTrue
 
 class DefaultSortItemsUseCaseTest {
     val items = listOf(
@@ -44,6 +47,20 @@ class DefaultSortItemsUseCaseTest {
                 4 to listOf(Item(534, 4, "Item 534"), Item(681, 4, "Item 681"), Item(808, 4, "Item 808"))
             )
             assertEquals(expectedItems, sortedItemsMap)
+        }
+    }
+
+    @Test
+    fun `test failure is received`() = runBlocking {
+        val repoWithFailure = object : ItemRepository {
+            override suspend fun getAllItems(): Result<List<Item>> = Result.failure(Exception("Failed to get Items!"))
+        }
+        val useCaseFailure = DefaultSortItemsUseCase(repoWithFailure)
+        useCaseFailure.getSortedItemsFlow().collect { result ->
+            assertTrue(result.isFailure)
+            assertNotNull(result.exceptionOrNull())
+            val message = result.exceptionOrNull()?.message
+            assertEquals("Failed to get Items!", message)
         }
     }
 }
