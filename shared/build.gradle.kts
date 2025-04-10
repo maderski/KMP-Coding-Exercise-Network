@@ -1,3 +1,4 @@
+import org.gradle.kotlin.dsl.testImplementation
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
@@ -36,6 +37,10 @@ kotlin {
         androidMain.dependencies {
             // KTOR Engine for Android
             implementation(libs.ktor.client.okhttp)
+        }
+        androidUnitTest.dependencies {
+            // Koin for Tests
+            implementation(libs.koin.test)
         }
         iosMain.dependencies {
             // KTOR Engine for iOS
