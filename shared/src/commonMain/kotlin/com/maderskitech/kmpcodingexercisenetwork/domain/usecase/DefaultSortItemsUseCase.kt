@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class DefaultSortItemsUseCase(private val repository: ItemRepository) : SortedItemsUseCase {
-    override fun get(): Flow<Result<Map<Int, List<Item>>>> = flow {
+    override fun getSortedItemsFlow(): Flow<Result<Map<Int, List<Item>>>> = flow {
         repository.getAllItems()
             .onSuccess { items ->
                 val sortedItemsMap = items
