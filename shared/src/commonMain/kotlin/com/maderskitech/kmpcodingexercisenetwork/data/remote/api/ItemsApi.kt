@@ -1,15 +1,20 @@
 package com.maderskitech.kmpcodingexercisenetwork.data.remote.api
 
-import io.ktor.client.HttpClient
+import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.model.ItemDto
+import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.network.HttpClientFactory
+import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.network.NetworkError
+import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.network.Response
+import com.maderskitech.kmpcodingexercisenetwork.getHttpClientEngine
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.util.network.UnresolvedAddressException
 import kotlinx.serialization.SerializationException
-import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.model.ItemDto
-import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.network.NetworkError
-import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.network.Response
 
-class ItemsApi(private val httpClient: HttpClient) {
+class ItemsApi {
+    // TODO: The httpClient should be provided by Koin, figure out why Koin wants the http user config to be
+    //  provided when it is already being set in the factory.
+    private val httpClient = HttpClientFactory.create(getHttpClientEngine())
+
     suspend fun getItems(): Response<List<ItemDto?>?, NetworkError> {
         val response = try {
             httpClient.get(

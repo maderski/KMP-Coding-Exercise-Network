@@ -16,6 +16,8 @@ object HttpClientFactory {
         install(ContentNegotiation) {
             json(
                 json = Json {
+                    isLenient = true
+
                     /*
                     If the API responds with client fields that our client doesn't know about
                     because we didn't define it in our model, don't crash the app and ignore these
