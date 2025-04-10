@@ -1,6 +1,7 @@
 package com.maderskitech.kmpcodingexercisenetwork.di
 
 import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.ItemsApi
+import com.maderskitech.kmpcodingexercisenetwork.dependencies.getNetworkClient
 import com.maderskitech.kmpcodingexercisenetwork.domain.mapper.ItemListMapper
 import com.maderskitech.kmpcodingexercisenetwork.domain.respository.DefaultItemRepository
 import com.maderskitech.kmpcodingexercisenetwork.domain.respository.ItemRepository
@@ -19,4 +20,6 @@ val commonModule = module {
     factoryOf(::ItemListMapper)
     singleOf(::DefaultItemRepository) bind ItemRepository::class
     singleOf(::DefaultSortItemsUseCase) bind SortedItemsUseCase::class
+
+    includes(platformModule)
 }

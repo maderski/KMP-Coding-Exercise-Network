@@ -1,4 +1,4 @@
-package com.maderskitech.kmpcodingexercisenetwork
+package com.maderskitech.kmpcodingexercisenetwork.dependencies
 
 import platform.UIKit.UIDevice
 

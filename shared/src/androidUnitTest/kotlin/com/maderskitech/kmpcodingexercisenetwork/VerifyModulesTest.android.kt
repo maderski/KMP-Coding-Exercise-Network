@@ -7,7 +7,7 @@ import org.koin.core.annotation.KoinExperimentalAPI
 import org.koin.test.KoinTest
 import org.koin.test.verify.verify
 
-class AndroidCheckModulesTest : KoinTest {
+class AndroidVerifyModulesTest : KoinTest {
     @OptIn(KoinExperimentalAPI::class)
     @Test
     fun checkPlatformModule() {
@@ -16,7 +16,7 @@ class AndroidCheckModulesTest : KoinTest {
 
     @OptIn(KoinExperimentalAPI::class)
     @Test
-    fun checkSharedModule() {
+    fun checkCommonModule() {
         commonModule.verify()
     }
 }

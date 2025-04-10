@@ -1,23 +1,19 @@
 package com.maderskitech.kmpcodingexercisenetwork.data.remote.api
 
 import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.model.ItemDto
-import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.network.HttpClientFactory
 import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.network.NetworkError
 import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.network.Response
-import com.maderskitech.kmpcodingexercisenetwork.getHttpClientEngine
+import com.maderskitech.kmpcodingexercisenetwork.dependencies.NetworkClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.util.network.UnresolvedAddressException
 import kotlinx.serialization.SerializationException
 
-class ItemsApi {
-    // TODO: The httpClient should be provided by Koin, figure out why Koin wants the http user config to be
-    //  provided when it is already being set in the factory.
-    private val httpClient = HttpClientFactory.create(getHttpClientEngine())
+class ItemsApi(private val networkClient: NetworkClient) {
 
     suspend fun getItems(): Response<List<ItemDto?>?, NetworkError> {
         val response = try {
-            httpClient.get(
+            networkClient.httpClient.get(
                 urlString = "https://fetch-hiring.s3.amazonaws.com/hiring.json"
             )
         } catch (e: UnresolvedAddressException) {
