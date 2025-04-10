@@ -6,20 +6,22 @@ import kotlinx.coroutines.runBlocking
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
-import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 class DefaultSortItemsUseCaseTest {
     val items = listOf(
         Item(684, 1, "Item 684"),
         Item(276, 1, "Item 276"),
+        Item(531, 5, "Item 531"),
         Item(808, 4, "Item 808"),
         Item(680, 3, "Item 680"),
+        Item(53, 5, "Item 63"),
         Item(534, 4, "Item 534"),
         Item(906, 2, "Item 906"),
         Item(735, 1, "Item 735"),
         Item(681, 4, "Item 681"),
         Item(137, 3, "Item 137"),
+        Item(5, 5, "Item 5"),
     )
 
 
@@ -44,7 +46,8 @@ class DefaultSortItemsUseCaseTest {
                 1 to listOf(Item(276, 1, "Item 276"), Item(684, 1, "Item 684"), Item(735, 1, "Item 735")),
                 2 to listOf(Item(906, 2, "Item 906")),
                 3 to listOf(Item(137, 3, "Item 137"), Item(680, 3, "Item 680")),
-                4 to listOf(Item(534, 4, "Item 534"), Item(681, 4, "Item 681"), Item(808, 4, "Item 808"))
+                4 to listOf(Item(534, 4, "Item 534"), Item(681, 4, "Item 681"), Item(808, 4, "Item 808")),
+                5 to listOf(Item(5, 5, "Item 5"), Item(53, 5, "Item 63"), Item(531, 5, "Item 531"))
             )
             assertEquals(expectedItems, sortedItemsMap)
         }
