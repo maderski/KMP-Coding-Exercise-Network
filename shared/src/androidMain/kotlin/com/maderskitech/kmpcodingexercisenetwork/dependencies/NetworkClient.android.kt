@@ -7,5 +7,3 @@ import io.ktor.client.engine.okhttp.OkHttp
 class AndroidNetworkClient : NetworkClient {
     override val httpClient: HttpClient = HttpClientFactory.create(OkHttp.create())
 }
-
-actual fun getNetworkClient(): NetworkClient = AndroidNetworkClient()

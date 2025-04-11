@@ -7,5 +7,3 @@ import io.ktor.client.engine.darwin.Darwin
 class IOSNetworkClient : NetworkClient {
     override val httpClient: HttpClient = HttpClientFactory.create(Darwin.create())
 }
-
-actual fun getNetworkClient(): NetworkClient = IOSNetworkClient()
