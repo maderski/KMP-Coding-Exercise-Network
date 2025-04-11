@@ -1,9 +1,11 @@
 # KMP-Coding-Exercise-Network
 Kotlin Mutliplatform Network Library for a coding exercise
 
-This is a networking library that can be used with Android as an AAR or with iOS as a Framework.  Since this is only an exercise I did not setup publishing in this project.  You will clone the project and build the artifact.
+This is a networking library that can be used with Android as an AAR or with iOS as a Framework.  Since this is only an exercise I did not setup publishing for this project.  To get the AAR or Framework, the project will need to be cloned and then assemble the artifact.
 
-The dependencies required by the KMP Network Library also have to be setup in the Android Project.  Not ideal, but since this was an exercise, I left it this way.
+The dependencies required by the KMP Network Library also have to be setup in the Android Project.  Not ideal, but since this was an exercise, so I left it this way.
+
+Most of the files are located in the commonMain module, since the majority of the code is shared.  I also demonstrated a few tests in the commonTest module.  The only platform specific code in the project is related to the HttpClient due to the platform specific engines.  Android is using Okhttp and iOS is using Darwin.  This code can be found in androidMain and iosMain modules.  
 
 ## Android
 To use on Android this library in your Android project:  
