@@ -83,4 +83,6 @@ In the app build gradle
       }
 ```
 
+An example of using this library in a Native Android Application can be found here: [App Link](https://github.com/maderski/Android-Coding-Exercise-App/tree/main?tab=readme-ov-file)
+
 # iOS (Coming soon)
