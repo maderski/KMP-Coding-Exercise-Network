@@ -1,7 +1,7 @@
 # KMP-Coding-Exercise-Network
 Kotlin Mutliplatform Network Library for a coding exercise
 
-This is a networking library that can be used with Android as an AAR or with iOS as a Framework.  Since this is only an exercise I did not setup publishing in this project.  You will either have to build or download the artifact.
+This is a networking library that can be used with Android as an AAR or with iOS as a Framework.  Since this is only an exercise I did not setup publishing in this project.  You will clone the project and build the artifact.
 
 The dependencies required by the KMP Network Library also have to be setup in the Android Project.  Not ideal, but since this was an exercise, I left it this way.
 
