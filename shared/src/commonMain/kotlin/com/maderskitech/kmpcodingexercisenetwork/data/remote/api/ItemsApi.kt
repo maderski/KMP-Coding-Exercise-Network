@@ -9,6 +9,19 @@ import io.ktor.client.request.get
 import io.ktor.util.network.UnresolvedAddressException
 import kotlinx.serialization.SerializationException
 
+/**
+ * Gets a list of Items with an id, listId, and name. Some Items may have names that are null or empty.
+ *
+ * Example of the JSON returned:
+ * [
+ *     {"id": 755, "listId": 2, "name": ""},
+ *     {"id": 203, "listId": 2, "name": ""},
+ *     {"id": 684, "listId": 1, "name": "Item 684"},
+ *     {"id": 276, "listId": 1, "name": "Item 276"},
+ *     {"id": 736, "listId": 3, "name": null},
+ *     ....
+ * ]
+ */
 class ItemsApi(private val networkClient: NetworkClient) {
 
     suspend fun getItems(): Response<List<ItemDto?>?, NetworkError> {

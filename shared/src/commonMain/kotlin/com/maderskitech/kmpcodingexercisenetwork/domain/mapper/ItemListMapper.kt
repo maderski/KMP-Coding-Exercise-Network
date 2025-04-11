@@ -3,6 +3,9 @@ package com.maderskitech.kmpcodingexercisenetwork.domain.mapper
 import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.model.ItemDto
 import com.maderskitech.kmpcodingexercisenetwork.domain.model.Item
 
+/**
+ * Only maps an ItemDto to an Item if it is not null AND the name in the ItemDto is not null or empty.
+ */
 class ItemListMapper {
     fun toItemList(itemDtoList: List<ItemDto?>?): List<Item>? =
         itemDtoList?.filterNotNull()?.mapNotNull { itemDto ->

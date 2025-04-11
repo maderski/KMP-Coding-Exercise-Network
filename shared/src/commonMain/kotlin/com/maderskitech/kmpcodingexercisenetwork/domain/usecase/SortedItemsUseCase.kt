@@ -4,7 +4,8 @@ import com.maderskitech.kmpcodingexercisenetwork.domain.model.Item
 import kotlinx.coroutines.flow.Flow
 
 /**
- * Sorts the results first by "listId" then by "name"
+ * Items are grouped by listId, then the associated items are sorted by name.  And
+ * groups are sorted by listId.
  */
 interface SortedItemsUseCase {
     fun getSortedItemsFlow(): Flow<Result<Map<Int, List<Item>>>>
