@@ -36,7 +36,7 @@ kotlin {
     sourceSets {
         androidMain.dependencies {
             // KTOR Engine for Android
-            implementation(libs.ktor.client.okhttp)
+            api(libs.ktor.client.okhttp)
         }
         androidUnitTest.dependencies {
             // Koin for Tests
@@ -51,7 +51,7 @@ kotlin {
             api(libs.koin.core)
 
             // General KTOR dependencies
-            implementation(libs.bundles.ktor)
+            api(libs.bundles.ktor)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
