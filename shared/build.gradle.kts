@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.mokkery.test)
+    alias(libs.plugins.kotlin.allopen)
 }
 
 kotlin {
@@ -70,3 +72,17 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
+
+// This check might require adjustment depending on your project type and the tasks that you use
+// `endsWith("Test")` works with "*Test" tasks from Multiplafrom projects, but it does not include tasks like `check`
+fun isTestingTask(name: String) = name.endsWith("Test")
+
+val isTesting = gradle
+    .startParameter
+    .taskNames
+    .any(::isTestingTask)
+
+if (isTesting) allOpen {
+    annotation("com.maderskitech.kmpcodingexercisenetwork.testingsupport.OpenForMokkery")
+}
+

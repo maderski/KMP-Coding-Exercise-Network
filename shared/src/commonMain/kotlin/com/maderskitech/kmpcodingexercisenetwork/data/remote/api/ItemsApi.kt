@@ -4,6 +4,7 @@ import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.model.ItemDto
 import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.network.NetworkError
 import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.network.Response
 import com.maderskitech.kmpcodingexercisenetwork.dependencies.NetworkClient
+import com.maderskitech.kmpcodingexercisenetwork.testingsupport.OpenForMokkery
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.util.network.UnresolvedAddressException
@@ -22,6 +23,7 @@ import kotlinx.serialization.SerializationException
  *     ....
  * ]
  */
+@OpenForMokkery
 class ItemsApi(private val networkClient: NetworkClient) {
 
     suspend fun getItems(): Response<List<ItemDto?>?, NetworkError> {

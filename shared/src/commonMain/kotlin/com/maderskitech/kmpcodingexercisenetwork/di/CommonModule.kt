@@ -4,8 +4,6 @@ import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.ItemsApi
 import com.maderskitech.kmpcodingexercisenetwork.domain.mapper.ItemListMapper
 import com.maderskitech.kmpcodingexercisenetwork.domain.respository.DefaultItemRepository
 import com.maderskitech.kmpcodingexercisenetwork.domain.respository.ItemRepository
-import com.maderskitech.kmpcodingexercisenetwork.domain.usecase.DefaultSortItemsUseCase
-import com.maderskitech.kmpcodingexercisenetwork.domain.usecase.SortedItemsUseCase
 import org.koin.core.module.dsl.factoryOf
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
@@ -18,7 +16,6 @@ val commonModule = module {
     // Domain
     factoryOf(::ItemListMapper)
     singleOf(::DefaultItemRepository) bind ItemRepository::class
-    singleOf(::DefaultSortItemsUseCase) bind SortedItemsUseCase::class
 
     includes(platformModule)
 }

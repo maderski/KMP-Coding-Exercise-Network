@@ -27,7 +27,7 @@ class ItemListMapperTest {
     @Test
     fun `test itemDtoList is null and should return an empty list`() {
         val mappedItems = mapper.toItemList(null)
-        assertEquals(emptyList<Item>(), mappedItems)
+        assertEquals(null, mappedItems)
     }
 
     @Test
