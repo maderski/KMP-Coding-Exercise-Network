@@ -1,7 +1,7 @@
-package com.maderskitech.kmpcodingexercisenetwork.di
+package com.maderskitech.kmpcodingexercisenetwork.platform.di
 
-import com.maderskitech.kmpcodingexercisenetwork.dependencies.AndroidNetworkClient
-import com.maderskitech.kmpcodingexercisenetwork.dependencies.NetworkClient
+import com.maderskitech.kmpcodingexercisenetwork.platform.AndroidNetworkClient
+import com.maderskitech.kmpcodingexercisenetwork.platform.NetworkClient
 import org.koin.core.module.Module
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind

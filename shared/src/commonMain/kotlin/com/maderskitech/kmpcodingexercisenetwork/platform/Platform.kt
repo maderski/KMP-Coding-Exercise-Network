@@ -1,4 +1,4 @@
-package com.maderskitech.kmpcodingexercisenetwork.dependencies
+package com.maderskitech.kmpcodingexercisenetwork.platform
 
 interface Platform {
     val name: String

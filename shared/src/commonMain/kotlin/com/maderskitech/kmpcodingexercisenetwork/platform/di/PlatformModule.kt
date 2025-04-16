@@ -1,4 +1,4 @@
-package com.maderskitech.kmpcodingexercisenetwork.di
+package com.maderskitech.kmpcodingexercisenetwork.platform.di
 
 import org.koin.core.module.Module
 
