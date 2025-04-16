@@ -7,6 +7,8 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.mokkery.test)
     alias(libs.plugins.kotlin.allopen)
+    alias(libs.plugins.google.ksp)
+    alias(libs.plugins.kmp.nativecoroutines)
 }
 
 kotlin {
@@ -58,6 +60,10 @@ kotlin {
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
+    }
+
+    sourceSets.all {
+        languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
     }
 }
 
