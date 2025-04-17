@@ -83,7 +83,8 @@ In the app build gradle
 
 An example of using this library in a Native Android Application can be found here: [Android App Repo Link](https://github.com/maderski/Android-Coding-Exercise-App)
 
-# iOS
+
+## iOS
 To use this library in an iOS project:
 1) Download the shared-release.xcframework and add it to your framework folder in your iOS project project.
 2) General -> Targets -> Frameworks, Libraries, Embedded Content add the shared.xcframework
