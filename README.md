@@ -66,19 +66,17 @@ In the app build gradle
 ```
     <uses-permission android:name="android.permission.INTERNET" />
 ```
-10) And to use, just inject the SortedItemsUseCase and collect the sortedItemsFlow(Note: this is a cold flow)
+10) And to use, just inject the itemsRepository and call getAllItems()
 ```
     fun getItems() {
         viewModelScope.launch {
-            sortedItemsUseCase.getSortedItemsFlow().collect { result ->
-                result
-                    .onSuccess { listIdToItemsMap ->
-                          // Do something...
-                    }
-                    .onFailure { throwable ->
-                          // handle the failure
-                    }
-            }
+            itemsRepository.getAllItems()
+                .onSuccess { listIdToItemsMap ->
+                    // Do something..
+                }
+                .onFailure { throwable ->
+                    // Handle error
+                }
           }
       }
 ```
