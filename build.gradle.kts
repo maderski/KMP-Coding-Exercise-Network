@@ -3,4 +3,6 @@ plugins {
     alias(libs.plugins.androidLibrary).apply(false)
     alias(libs.plugins.kotlinMultiplatform).apply(false)
     alias(libs.plugins.kotlin.serialization).apply(false)
+    alias(libs.plugins.google.ksp).apply(false)
+    alias(libs.plugins.kmp.nativecoroutines).apply(false)
 }
