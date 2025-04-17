@@ -7,7 +7,11 @@ import com.maderskitech.kmpcodingexercisenetwork.platform.NetworkClient
 import com.maderskitech.kmpcodingexercisenetwork.testingsupport.OpenForMokkery
 import io.ktor.client.call.body
 import io.ktor.client.request.get
+import io.ktor.http.ContentType
+import io.ktor.http.contentType
+import io.ktor.http.withCharset
 import io.ktor.util.network.UnresolvedAddressException
+import io.ktor.utils.io.charsets.Charsets
 import kotlinx.serialization.SerializationException
 
 /**
@@ -28,7 +32,7 @@ class ItemsApiImpl(private val networkClient: NetworkClient) : ItemsApi{
     override suspend fun getItems(): Response<List<ItemDto?>?, NetworkError> {
         val response = try {
             networkClient.httpClient.get(
-                urlString = "https://fetch-hiring.s3.amazonaws.com/hiring.json"
+                urlString = ITEMS_URL
             )
         } catch (e: UnresolvedAddressException) {
             return Response.Failure(NetworkError.NO_INTERNET)
@@ -50,5 +54,9 @@ class ItemsApiImpl(private val networkClient: NetworkClient) : ItemsApi{
             in 500 .. 599 -> Response.Failure(NetworkError.SERVER_ERROR)
             else -> Response.Failure(NetworkError.UNKNOWN)
         }
+    }
+
+    companion object {
+        private const val ITEMS_URL = "https://raw.githubusercontent.com/maderski/coding-exercise-data/main/items.json"
     }
 }
