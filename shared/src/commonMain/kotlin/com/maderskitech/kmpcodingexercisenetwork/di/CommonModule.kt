@@ -1,6 +1,7 @@
 package com.maderskitech.kmpcodingexercisenetwork.di
 
 import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.ItemsApi
+import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.ItemsApiImpl
 import com.maderskitech.kmpcodingexercisenetwork.domain.mapper.ItemListMapper
 import com.maderskitech.kmpcodingexercisenetwork.domain.respository.DefaultItemRepository
 import com.maderskitech.kmpcodingexercisenetwork.domain.respository.ItemRepository
@@ -13,7 +14,7 @@ import org.koin.dsl.module
 
 val commonModule = module {
     // Data - Remote
-    singleOf(::ItemsApi)
+    singleOf(::ItemsApiImpl) bind ItemsApi::class
 
     // Domain
     factoryOf(::ItemListMapper)

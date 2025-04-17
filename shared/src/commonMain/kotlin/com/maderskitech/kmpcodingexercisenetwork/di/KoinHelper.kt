@@ -8,7 +8,7 @@ import org.koin.core.module.Module
 import org.koin.dsl.KoinAppDeclaration
 
 object KoinHelper : KoinComponent {
-    private val itemRepositoryWrapper: ItemRepositoryWrapper by inject()
+    private val itemRepoWrapper: ItemRepositoryWrapper by inject()
 
     fun initKoin(
         appModules: List<Module> = emptyList(),
@@ -26,5 +26,5 @@ object KoinHelper : KoinComponent {
         }
     }
 
-    fun getItemRepositoryWrapper(): ItemRepositoryWrapper = itemRepositoryWrapper
+    fun getItemRepositoryWrapper(): ItemRepositoryWrapper = itemRepoWrapper
 }
