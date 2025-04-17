@@ -81,6 +81,41 @@ In the app build gradle
       }
 ```
 
-An example of using this library in a Native Android Application can be found here: [App Link](https://github.com/maderski/Android-Coding-Exercise-App/tree/main?tab=readme-ov-file)
+An example of using this library in a Native Android Application can be found here: [App Link](https://github.com/maderski/Android-Coding-Exercise-App)
 
-# iOS (Coming soon)
+# iOS
+To use this library in an iOS project:
+1) Download the shared-release.xcframework and add it to your framework folder in your iOS project project.
+2) General -> Targets -> Frameworks, Libraries, Embedded Content add the shared.xcframework
+3) Add the Native Coroutines dependency
+[KMP-NativeCoroutines](https://github.com/rickclephas/KMP-NativeCoroutines)
+4) In your App file add:
+```
+import shared
+
+init() {
+        KoinHelper.shared.doInitKoin(appModules: [])
+    }
+```
+5) And to use in the viewModel you would like to retrieve the items
+```
+import shared
+import KMPNativeCoroutinesAsync
+
+private let itemRepository = KoinHelper.shared.getItemRepositoryWrapper()
+
+func fetchData() async {
+            Task { @MainActor in
+                let result = await asyncResult(for: itemRepository.getAllItems())
+                
+                switch result {
+                case .success(let data):
+                    // Do something..
+                    
+                case .failure(let error):
+                    // Handle error
+                }
+            }
+        }
+```
+An example of using this library in a Native iOS Application can be found here: [App Link](https://github.com/maderski/iOS-Coding-Exercise-App)
