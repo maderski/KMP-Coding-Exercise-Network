@@ -81,7 +81,7 @@ In the app build gradle
       }
 ```
 
-An example of using this library in a Native Android Application can be found here: [App Link](https://github.com/maderski/Android-Coding-Exercise-App)
+An example of using this library in a Native Android Application can be found here: [Android App Repo Link](https://github.com/maderski/Android-Coding-Exercise-App)
 
 # iOS
 To use this library in an iOS project:
@@ -118,4 +118,4 @@ func fetchData() async {
             }
         }
 ```
-An example of using this library in a Native iOS Application can be found here: [App Link](https://github.com/maderski/iOS-Coding-Exercise-App)
+An example of using this library in a Native iOS Application can be found here: [iOS App Repo Link](https://github.com/maderski/iOS-Coding-Exercise-App)
