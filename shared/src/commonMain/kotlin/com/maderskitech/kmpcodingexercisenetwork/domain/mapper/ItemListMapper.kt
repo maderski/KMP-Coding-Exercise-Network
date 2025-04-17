@@ -13,9 +13,8 @@ class ItemListMapper {
             val listId = itemDto.listId ?: -1
             val name = itemDto.name
 
-            // TODO: Check with product how to handle null id or null listId.  The requirements
-            //  only state to filter out null or empty names.  Need to find out if we are only
-            //  logging these or if the user should be told something is wrong.
+            // TODO: Figure out if invalid listId and/or invalid id
+            //  are just logged or if the user should be told something is wrong.
             if (!name.isNullOrEmpty()) {
                 Item(id, listId, name)
             } else {
