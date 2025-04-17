@@ -5,6 +5,10 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.mokkery.test)
+    alias(libs.plugins.kotlin.allopen)
+    alias(libs.plugins.google.ksp)
+    alias(libs.plugins.kmp.nativecoroutines)
 }
 
 kotlin {
@@ -36,7 +40,7 @@ kotlin {
     sourceSets {
         androidMain.dependencies {
             // KTOR Engine for Android
-            implementation(libs.ktor.client.okhttp)
+            api(libs.ktor.client.okhttp)
         }
         androidUnitTest.dependencies {
             // Koin for Tests
@@ -51,11 +55,15 @@ kotlin {
             api(libs.koin.core)
 
             // General KTOR dependencies
-            implementation(libs.bundles.ktor)
+            api(libs.bundles.ktor)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
+    }
+
+    sourceSets.all {
+        languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
     }
 }
 
@@ -70,3 +78,17 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
+
+// This check might require adjustment depending on your project type and the tasks that you use
+// `endsWith("Test")` works with "*Test" tasks from Multiplafrom projects, but it does not include tasks like `check`
+fun isTestingTask(name: String) = name.endsWith("Test")
+
+val isTesting = gradle
+    .startParameter
+    .taskNames
+    .any(::isTestingTask)
+
+if (isTesting) allOpen {
+    annotation("com.maderskitech.kmpcodingexercisenetwork.testingsupport.OpenForMokkery")
+}
+

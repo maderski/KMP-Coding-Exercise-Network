@@ -6,6 +6,9 @@ compose-material3 = "1.1.2"
 androidx-activityCompose = "1.8.0"
 ktor = "3.1.0"
 koin = "4.0.2"
+mokkery = "2.7.2"
+kmp-nativecoroutines = "1.0.0-ALPHA-41"
+ksp = "2.1.20-1.0.31"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -41,6 +44,18 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 
 # Serialization
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+# Unit Test Mocking
+mokkery-test = { id = "dev.mokkery", version.ref = "mokkery" }
+
+# Open final classes for testing
+kotlin-allopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin"}
+
+# KMP-NativeCoroutines https://github.com/rickclephas/KMP-NativeCoroutines
+kmp-nativecoroutines = { id = "com.rickclephas.kmp.nativecoroutines", version.ref = "kmp-nativecoroutines" }
+
+# KSP
+google-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
 
 [bundles]
 ktor = [

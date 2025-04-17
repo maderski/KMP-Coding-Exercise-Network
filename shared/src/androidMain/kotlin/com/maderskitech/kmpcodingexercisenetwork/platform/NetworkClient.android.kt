@@ -1,4 +1,4 @@
-package com.maderskitech.kmpcodingexercisenetwork.dependencies
+package com.maderskitech.kmpcodingexercisenetwork.platform
 
 import com.maderskitech.kmpcodingexercisenetwork.data.remote.api.network.HttpClientFactory
 import io.ktor.client.HttpClient

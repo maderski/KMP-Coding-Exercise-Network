@@ -1,6 +1,6 @@
 package com.maderskitech.kmpcodingexercisenetwork
 
-import com.maderskitech.kmpcodingexercisenetwork.di.platformModule
+import com.maderskitech.kmpcodingexercisenetwork.platform.di.platformModule
 import com.maderskitech.kmpcodingexercisenetwork.di.commonModule
 import org.junit.Test
 import org.koin.core.annotation.KoinExperimentalAPI
